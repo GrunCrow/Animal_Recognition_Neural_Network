@@ -5,6 +5,8 @@ DATASETS_ROOT_FOLDER = "../../datasets/animals/"
 DATASETS_ROOT_FOLDER = os.path.abspath(DATASETS_ROOT_FOLDER) + os.sep
 CSV_FOLDER = "../../csv/"
 CSV_FOLDER = os.path.abspath(CSV_FOLDER) + os.sep
+
+
 MODELS_FOLDER = "../../models/v4/"
 MODELS_FOLDER = os.path.abspath(MODELS_FOLDER) + os.sep
 
