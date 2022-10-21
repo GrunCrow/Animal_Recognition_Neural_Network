@@ -1,44 +1,35 @@
 import os
 
 ############ DATASET INFORMATION
-CLASSES = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
-
-CLASS_NUMBER = len(CLASSES)
-
-# Nos aseguramos que son string
-CLASSES =[str(item) for item in CLASSES]
-
-
-CLASS_DICTIONARY = {}
-for idx, clas in enumerate(CLASSES):
-    CLASS_DICTIONARY[clas] = idx
-
-
+CLASSES = [
+    "Turtle",
+    "Chicken",
+    "Bear"
+]
 
 #################################################################################
-# DATASETS
+# IMAGE DATASETS
 #################################################################################
-
-
-########################################
-# Image Dataset
 
 # Path to root image folders
+#DATASETS_ROOT_FOLDER = "C:/Users/albam/OneDrive - UNIVERSIDAD DE HUELVA/2. Universidad/Proyects/2. Animal Recognition/datasets/"
 DATASETS_ROOT_FOLDER = "../../datasets/"
 # DATASETS_ROOT_FOLDER = os.path.abspath(DATASETS_ROOT_FOLDER) + os.sep
 
-########################################
-# CSV dataset
+#################################################################################
+# CSV DATASETS
+#################################################################################
 
 # Path to csv-dataset files
+# CSV_FOLDER = "C:/Users/albam/OneDrive - UNIVERSIDAD DE HUELVA/2. Universidad/Proyects/2. Animal Recognition/csv/"
 CSV_FOLDER = "../../csv/"
-#CSV_FOLDER = os.path.abspath(CSV_FOLDER) + os.sep
+
+CSV_FOLDER = os.path.abspath(CSV_FOLDER) + os.sep
 
 # csv-dataset file names
-TRAIN_CSV = "mnist_train.csv"
-TEST_CSV = "mnist_test.csv"
-VALIDATION_CSV = "mnist_val.csv"
-
+TRAIN_CSV = "final_train_list.csv"
+TEST_CSV = "final_test_list.csv"
+VALIDATION_CSV = "final_validation_list.csv"
 
 #################################################################################
 # MODEL
@@ -49,8 +40,8 @@ VALIDATION_CSV = "mnist_val.csv"
 # Model and weights defined together
 
 # Path to the model+weights of the model
-MODEL_PATH = "../../models/v5"
-MODEL_PATH = "/home/manuel/Escritorio/Alba/Animal_Recognition_Neural_Network-master/models/v5/test_model"
+MODEL_PATH = "../../../models/v5/test_model"
+# MODEL_PATH = "/home/manuel/Escritorio/Alba/Animal_Recognition_Neural_Network-master/models/v5/test_model"
 
 ########################################
 # Path to folder where to save the model
@@ -58,33 +49,44 @@ MODEL_PATH = "/home/manuel/Escritorio/Alba/Animal_Recognition_Neural_Network-mas
 MODEL_SAVE_FOLDER = "../../models/v5/"
 MODEL_SAVE_FOLDER = os.path.abspath(MODEL_SAVE_FOLDER) + os.sep
 
-
+#################################################################################
 
 
 #################################################################################
 # TRAIN
 #################################################################################
-
 SHUFFLE = None
-
-BATCH_NUMBER = 32
-
-# The number of epochs is repeated during the training_loops_Dataset_renewal
-TRAINING_LOOPS_DATASETS_RENEWAL = 3
-EPOCHS = 3
-
 
 
 ###################################################
-# Size/shape of images (when resized)
 
-IMG_WIDTH = 28
-IMG_HEIGHT = 28
-N_CHANNELS = 1
+# Size of images (when resized)
 
+IMG_WIDTH = 200
+IMG_HEIGHT = 200
 
 #################################################################################
 # Lists
 
 IMG_EXTENSIONS = ['jpg', 'JPG', 'png', 'PNG']
 
+#################################################################################
+# Sample
+
+BATCH_NUMBER = 16
+
+CLASS_NUMBER = 3
+
+###################################################
+
+CLASS_DICTIONARY = {}
+
+for idx, clas in enumerate(CLASSES):
+    CLASS_DICTIONARY[clas] = idx
+
+'''
+CLASS_DICTIONARY = {
+    "Turtle": 0,
+    "Chicken": 1,
+    "Bear": 2
+}'''
